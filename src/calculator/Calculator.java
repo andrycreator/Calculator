@@ -8,7 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Calculator extends Frame implements ActionListener {
+public class Calculator extends Frame {
+    static Label label = new Label("label");
+    static Button button = new Button("Test");
     
     public Calculator() {
     }
@@ -24,19 +26,20 @@ public class Calculator extends Frame implements ActionListener {
         calc.setLayout(new FlowLayout());
         calc.setVisible(true);
         
-        
-        Button button = new Button("Test");
         button.setSize(20, 60);
         calc.add(button);
         
-        Label label = new Label();
         calc.add(label);
         
+        button.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                label.setText(button.getLabel());
+            }
+        });
                 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-    }
+    
 }
