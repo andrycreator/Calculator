@@ -1,6 +1,7 @@
 package calculator;
 
 import java.awt.Button;
+import java.awt.Checkbox;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 public class Calculator extends Frame {
     static Label label = new Label("label");
     static Button button = new Button("Test");
+    static Checkbox checkbox = new Checkbox();
     
     public Calculator() {
     }
@@ -19,7 +21,6 @@ public class Calculator extends Frame {
         super(title);
     }
 
-    
     public static void main(String[] args) {
         Frame calc = new Calculator("First frame");
         calc.setSize(400, 400);
