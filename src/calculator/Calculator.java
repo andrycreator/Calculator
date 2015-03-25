@@ -5,6 +5,7 @@ import java.awt.Checkbox;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,7 @@ public class Calculator extends Frame {
     static Label label = new Label("label");
     static Button button = new Button("Test");
     static Checkbox checkbox = new Checkbox();
+    static Panel panel = new Panel();
     
     public Calculator() {
     }
@@ -31,6 +33,7 @@ public class Calculator extends Frame {
         calc.add(button);
         
         calc.add(label);
+        calc.add(panel);
         
         button.addActionListener(new ActionListener() {
 
