@@ -1,48 +1,38 @@
 package calculator;
 
-import java.awt.Button;
-import java.awt.Checkbox;
 import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.basic.BasicLookAndFeel;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 
-public class Calculator extends Frame {
-    static Label label = new Label("label");
-    static Button button = new Button("Test");
-    static Checkbox checkbox = new Checkbox();
-    static Panel panel = new Panel();
-    
-    public Calculator() {
-    }
-    
-    public Calculator(String title) {
-        super(title);
-    }
-
+public class Calculator {
+        
     public static void main(String[] args) {
-        Frame calc = new Calculator("First frame");
+        try {
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JFrame calc = new JFrame("First frame");
         calc.setSize(400, 400);
+        calc.setLayout(new FlowLayout());
+        calc.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        calc.setIconImage(new ImageIcon("d:/Icons/apple.png").getImage());
         calc.setLayout(new FlowLayout());
         calc.setVisible(true);
         
-        button.setSize(20, 60);
-        calc.add(button);
-        
-        calc.add(label);
-        calc.add(panel);
-        
-        button.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                label.setText(button.getLabel());
-            }
-        });
-                
+        JTextField text = new JTextField("Hello", 20);
+        calc.add(text);
     }
 
     
